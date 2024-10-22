@@ -4,7 +4,7 @@
         </style>
     </head>
     <body>
-        <button onclick="sendMsg">发送信息</button>
+        <button onclick="sendMsg()">发送信息</button>
     </body>
     <script>
 
@@ -21,7 +21,7 @@
         }
         // 页面监听service worker
         navigator.serviceWorker.addEventListener('message', function (e) {
-            const data = e.data;
+            console.log('page listener', e.data)
         })
         
 
