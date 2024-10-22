@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <button onclick="sendMsg">发送信息</button>
+    </body>
+    <script>
+
+        function connect() {
+            navigator.serviceWorker.register('./sw.js').then(() => {
+                console.log('register')
+            })
+        }
+        connect();
+
+        function sendMsg(e) {
+            conosle.log('click')
+            navigator.serviceWorker.controller.postMessage("Client 1 says ");
+        }
+        // 页面监听service worker
+        navigator.serviceWorker.addEventListener('message', function (e) {
+            const data = e.data;
+        })
+        
+
+
+    </script>
+</html>
