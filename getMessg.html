@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <style>
+        </style>
+    </head>
+    <body>
+        <h1>获取信息</h1>
+    </body>
+    <script>
+       
+
+
+        // share
+        let shareWorker = null
+        function shareConnect() {
+            shareWorker = new SharedWorker('./sw_share.js', 'one')
+
+        }
+        shareConnect()
+        // 发送 get 信息
+        shareWorker.port.postMessage(({get: true}))
+        // 监听消息
+        window.addEventListener('message', (e) => {
+            console.log('listen', e.data)
+        })
+        
+
+
+    </script>
+</html>
