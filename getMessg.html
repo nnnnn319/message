@@ -28,6 +28,8 @@
             })
         }
         connect();
+        navigator.serviceWorker.controller.postMessage({get: true});
+
         navigator.serviceWorker.addEventListener('message', function (e) {
             console.log('get message service listener', e.data)
         })
