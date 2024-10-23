@@ -1,6 +1,6 @@
 let data = null
 self.addEventListener('message', (e) => {
-    if(e.get) {
+    if(e.data.get) {
         console.log('service get  message')
         self.clients.matchAll().then(function (clients) {
             if (!clients || clients.length === 0) {
