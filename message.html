@@ -8,18 +8,18 @@
     </body>
     <script>
         // 这一个版本做到每次页面打开 都使用service worker中上次保留的数据推送给当前页面 做到了传输数据。但是没有区分是要设置数据还是要获取数据
-        // function connect() {
-        //     navigator.serviceWorker.register('./sw.js').then(() => {
-        //         console.log('register')
-        //     })
-        // }
-        // connect();
+        function connect() {
+            navigator.serviceWorker.register('./sw.js').then(() => {
+                console.log('register')
+            })
+        }
+        connect();
 
-        // function sendMsg(e) {
-        //     console.log('click')
-        //     navigator.serviceWorker.controller.postMessage("Client 1 says ");
-        // }
-        // // 页面监听service worker
+        function sendMsg(e) {
+            console.log('click')
+            navigator.serviceWorker.controller.postMessage({data: 'client 1 send messg'});
+        }
+        // 页面监听service worker
         // navigator.serviceWorker.addEventListener('message', function (e) {
         //     console.log('page listener', e.data)
         // })

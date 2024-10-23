@@ -17,8 +17,21 @@
         shareWorker.port.postMessage(({get: true}))
         // 监听消息
         window.addEventListener('message', (e) => {
-            console.log('listen', e.data)
+            console.log('get mesaage share listen', e.data)
         })
+
+
+        // service 
+        function connect() {
+            navigator.serviceWorker.register('./sw.js').then(() => {
+                console.log('register')
+            })
+        }
+        connect();
+        navigator.serviceWorker.addEventListener('message', function (e) {
+            console.log('get message service listener', e.data)
+        })
+
         
 
 
