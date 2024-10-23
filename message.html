@@ -9,7 +9,7 @@
     <script>
         // 这一个版本做到每次页面打开 都使用service worker中上次保留的数据推送给当前页面 做到了传输数据。但是没有区分是要设置数据还是要获取数据
         function connect() {
-            navigator.serviceWorker.register('./sw.js').then(() => {
+            navigator.serviceWorker.register('./utils/sw.js').then(() => {
                 console.log('register')
             })
         }
@@ -28,7 +28,7 @@
         // share
         console.log('share message')
         let shareWorker = null
-        shareWorker = new SharedWorker('./sw_share.js', 'one')
+        shareWorker = new SharedWorker('./utils/sw_share.js', 'one')
 
         let data = {
             name: '发送了信息'

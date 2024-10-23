@@ -12,7 +12,7 @@
 
         // share
         let shareWorker = null
-        shareWorker = new SharedWorker('./sw_share.js', 'one')
+        shareWorker = new SharedWorker('./utils/sw_share.js', 'one')
         // 发送 get 信息
         shareWorker.port.postMessage(({get: true}))
         // 监听消息
@@ -23,7 +23,7 @@
 
         // service 
         function connect() {
-            navigator.serviceWorker.register('./sw.js').then(() => {
+            navigator.serviceWorker.register('./utils/sw.js').then(() => {
                 console.log('register')
             })
         }
