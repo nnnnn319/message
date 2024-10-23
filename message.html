@@ -27,10 +27,8 @@
 
         // share
         let shareWorker = null
-        function shareConnect() {
-            shareWorker = new SharedWorker('./sw_share.js', 'one')
+        shareWorker = new SharedWorker('./sw_share.js', 'one')
 
-        }
         let data = {
             name: '发送了信息'
         }

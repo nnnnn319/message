@@ -12,11 +12,7 @@
 
         // share
         let shareWorker = null
-        function shareConnect() {
-            shareWorker = new SharedWorker('./sw_share.js', 'one')
-
-        }
-        shareConnect()
+        shareWorker = new SharedWorker('./sw_share.js', 'one')
         // 发送 get 信息
         shareWorker.port.postMessage(({get: true}))
         // 监听消息
