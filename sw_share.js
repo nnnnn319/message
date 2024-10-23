@@ -1,5 +1,7 @@
 let data = null
 let port = null
+
+console.log('sharejs start')
 self.addEventListener('connect', (e) => {
     port = e.ports[0]
     port.addEventListener('message', (e) => {
